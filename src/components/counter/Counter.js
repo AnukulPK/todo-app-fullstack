@@ -10,12 +10,42 @@ const Counter = () => {
     setCount(newCount);
   };
 
+  const countDecrementHandler = (decrement) => {
+    // console.log('increment Value', increment);
+    let newCount = count - decrement;
+    setCount(newCount);
+  };
+
+  const resetHandler = () => {
+    setCount(0);
+  };
+
   return (
     <div className="counter">
-      <CounterButton increment={1} incrementMethod={countIncreaseHandler} />
-      <CounterButton increment={5} incrementMethod={countIncreaseHandler} />
-      <CounterButton increment={10} incrementMethod={countIncreaseHandler} />
+      <CounterButton
+        increment={1}
+        decrement={1}
+        incrementMethod={countIncreaseHandler}
+        decrementMethod={countDecrementHandler}
+      />
+      <CounterButton
+        increment={5}
+        decrement={5}
+        incrementMethod={countIncreaseHandler}
+        decrementMethod={countDecrementHandler}
+      />
+      <CounterButton
+        increment={10}
+        decrement={10}
+        incrementMethod={countIncreaseHandler}
+        decrementMethod={countDecrementHandler}
+      />
       <span className="count">{count}</span>
+      <div>
+        <button className="reset" onClick={resetHandler}>
+          Reset
+        </button>{' '}
+      </div>
     </div>
   );
 };
