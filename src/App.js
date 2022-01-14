@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 
-import CounterContainer from './components/counterContainer/CounterContainer';
+import CounterContainer from './components/counter/Counter';
 
 function App() {
   return (

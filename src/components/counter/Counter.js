@@ -1,29 +1,23 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import './Counter.css';
+import CounterButton from '../counterButton/CounterButton';
 
-const Counter = ({ increment }) => {
+const Counter = () => {
   const [count, setCount] = useState(0);
 
-  const countIncreaseHandler = () => {
+  const countIncreaseHandler = (increment) => {
+    // console.log('increment Value', increment);
     let newCount = count + increment;
     setCount(newCount);
   };
 
   return (
     <div className="counter">
-      <button onClick={countIncreaseHandler}>+{increment}</button>
+      <CounterButton increment={1} incrementMethod={countIncreaseHandler} />
+      <CounterButton increment={5} incrementMethod={countIncreaseHandler} />
+      <CounterButton increment={10} incrementMethod={countIncreaseHandler} />
       <span className="count">{count}</span>
     </div>
   );
-};
-
-Counter.defaultProps = {
-  increment: 1,
-};
-
-Counter.propTypes = {
-  increment: PropTypes.number,
 };
 
 export default Counter;
